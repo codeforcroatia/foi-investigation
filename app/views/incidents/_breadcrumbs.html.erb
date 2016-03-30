@@ -1,7 +1,7 @@
-<li><%= link_to "Incident Reports", :incidents, :title => "Explore incident records from Australia's immigration detention network" %></li>
+<li><%= link_to "Informacije", :incidents, :title => "Istražite podatke, dokumente i radove javnog sektora" %></li>
 
-<li><%= link_to "Incident Report #{@incident.incident_number}", @incident %></li>
+<li><%= link_to "#{@incident.incident_number}", @incident %></li>
 
 <% if current_page?(incident_adopt_path(@incident)) %>
-<li><%= link_to "Adopt", incident_adopt_path(@incident) %></li>
+<li><%= link_to "Preuzmi", incident_adopt_path(@incident) %></li>
 <% end %>

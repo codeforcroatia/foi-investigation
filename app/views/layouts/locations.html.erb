@@ -11,6 +11,21 @@
 </head>
 <body class="main">
 
+<% if notice %>
+    <p class="msg msg-notice"><%= notice %></p>
+  <% end %>
+
+  <% if admin_signed_in? %>
+    <nav class="admin-bar" id="admin-bar">
+      <p>Signed in as <%= current_admin.email %></p>
+
+      <%= link_to "Locations", :locations %> 
+      <%= link_to "New incident", new_incident_path %>
+      
+      <%= link_to "logout",  destroy_admin_session_path, method: :delete, class: 'admin-logout-link' %>
+    </nav>
+  <% end %>
+
     <%= yield %>
 
 </body>

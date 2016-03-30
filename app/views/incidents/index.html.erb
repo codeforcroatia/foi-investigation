@@ -1,7 +1,7 @@
 <%
 	title incidentexplorer_results
 
-	description "Explore an index of 'incident reports' recorded by staff at Australia’s immigration detention facilities."
+	description "Istražite popis informacija javnog sektora koji možda još nisu javno objavljeni."
 
 	breadcrumb :incidents, @incidents
 %>
@@ -9,16 +9,16 @@
 <%= render 'layouts/sub-nav' %>
 
 <section class="body-container incident-index" id="content" role="main">
-	<a class="skip-link" href="#results">Skip to filter results</a>
+	<a class="skip-link" href="#results">Preskoči na filtar rezultata</a>
 
 	<header class="page-header">
-		<h1 class="page-title">Incident Reports</h1>
+		<h1 class="page-title">Informacije javnog sektora</h1>
 
     <nav class="page-nav">
-      <%= link_to "About Incident Reports", about_incidents_path, title: 'Read more information about Incident Reports.' %>
+      <%= link_to "PSI detalji", about_incidents_path, title: 'Pročitajte više o informacijama javnog sektora.' %>
     </nav>
 
-    <p class="page-summary">Incident Reports are records of events that occur in immigration detention, produced by detention centre staff for the Australian Government.</p>
+    <p class="page-summary">Informacije javnog sektora (PSI) su javni podaci koje prikupljaju, upisuju ili održavaju tijela javne vlasti. Neki PSI možda još nisu javno objavljeni. Koristite ovaj popis za pregledavanje takvih informacija i pokrenite istraživanje za tim podacima!</p>
 	</header>
 
 	<%= render 'incident-filters' %>

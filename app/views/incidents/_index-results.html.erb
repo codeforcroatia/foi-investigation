@@ -1,4 +1,4 @@
-<h2 class="supporting">Results</h2>
+<h2 class="supporting">Popis</h2>
 
 <article class="incident-index-results" id="results">
   <h1 class="incident-index-results-description">
@@ -10,23 +10,23 @@
     </strong>
     <% end %>
 
-    incident reports
+    potencijalnih informacija
 
     <% if params[:by_detailed_report] %>
-      with attatched <strong>Incident Detail Reports</strong>
+      s priloženom <strong>dokumentacijom</strong>
     <% end %>
 
     <% if @location_name %>
-      from <strong class="location"><%= @location_name %></strong>
+      od <strong class="location"><%= @location_name %></strong>
     <% end %>
 
-    between
+    između
 
     <strong class="start-date">
       <%= @start_date.strftime("%e %b %Y") %>
     </strong>
 
-    and
+    i
 
     <strong class="end-date">
       <%=@end_date.strftime("%e %b %Y") %>.
@@ -35,7 +35,7 @@
 </article>
 
 <section class="incident-index-results-reference">
-  <%= link_to "Permalink", params, class: 'incident-index-permalink', title: 'url to share or bookmark these results' %>
+  <%= link_to "Permalink", params, class: 'incident-index-permalink', title: 'url za dijeljenje ili spremanje trajnog linka do ovih rezultata' %>
 
   <%= render 'incidents/pagination-block' %>
 </section>

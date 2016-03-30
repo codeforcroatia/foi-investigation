@@ -1,48 +1,48 @@
 <%= form_tag(incidents_path, :method => :get, :class => 'incident-filters', :id => 'filters', :role => 'form') do %>
-  <h2 class="incident-filters-title">Find Incident Reports</h2>
+  <h2 class="incident-filters-title">Pronađite informacije</h2>
 
   <div class="incident-filters-inputs">
     <fieldset class="form-group-type">
-      <legend class="visuallyhidden">Select a type or category of incident report that you would like to find.</legend>
+      <legend class="visuallyhidden">Odaberite vrstu informacije koju želite potražiti.</legend>
 
-      <label for="incident_type">Type</label>
+      <label for="incident_type">Vrsta</label>
 
       <%= select_tag(:incident_type, options_from_collection_for_select(@incident_types, 'to_s', 'to_s', params[:incident_type]), :prompt => "All") %>
     </fieldset>
 
     <fieldset class="form-group-location">
-      <legend class="visuallyhidden">Select a to find incident reports from a specific detention facility, or from all facilities.</legend>
+      <legend class="visuallyhidden">Odaberite nadležno tijelo javne vlasti čije informacije želite potražiti.</legend>
 
-      <label for="location">Detention Facility</label>
+      <label for="location">Vlasnik informacije</label>
 
       <%= select_tag(:location, option_groups_from_collection_for_select(@location_groups, :locations, :name, :id, :name, params[:location]), :prompt => "All") %>
     </fieldset>
 
     <fieldset class="form-group-date datepicker">
-      <legend class="visuallyhidden">Set the start and end dates to find incident reports between.</legend>
+      <legend class="visuallyhidden">Namjestite početni i krajnji datum za pretraživanje informacije u vremenskom rasponu.</legend>
 
       <div class="form-group-start-date">
-        <label for="by_period_start_date">Start date</label>
+        <label for="by_period_start_date">Početni datum</label>
 
-        <input id="by_period_start_date" type="date" name="by_period[start_date]" value="<%=@start_date%>" placeholder="Earliest is <%=@start_date%>" min="2009-10-03" max="2011-05-26" required>
+        <input id="by_period_start_date" type="date" name="by_period[start_date]" value="<%=@start_date%>" placeholder="Earliest is <%=@start_date%>" min="2015-01-01" max="2016-12-31" required>
       </div>
 
       <div class="form-group-end-date">
-        <label for="by_period_end_date">End date</label>
+        <label for="by_period_end_date">Krajnji datum</label>
 
-        <input id="by_period_end_date" type="date" name="by_period[end_date]" value="<%=@end_date%>" placeholder="Most recent is <%=@end_date%>" min="2009-10-03" max="2011-05-26" required>
+        <input id="by_period_end_date" type="date" name="by_period[end_date]" value="<%=@end_date%>" placeholder="Most recent is <%=@end_date%>" min="2015-01-01" max="2016-12-31" required>
       </div>
     </fieldset>
 
     <fieldset class="form-group-has-detail-report">
-      <legend class="visuallyhidden">Some incident reports have an 'Incident Detail Report' attached. You may filter the results to find only incidents with these attachments.</legend>
+      <legend class="visuallyhidden">Neke informacije mogu imati priloženu dokumentaciju. Uključite opciju za prikazivanje samo tih rezultata.</legend>
 
       <label for="by_detailed_report">
         <%=check_box_tag :by_detailed_report, 'true', !!params[:by_detailed_report] %>
-        Has detail report
+        Ima priloženu dokumentaciju
       </label>
     </fieldset>
 
-    <input class="btn btn-submit" type="submit" role="button" value="Find reports"/>
+    <input class="btn btn-submit" type="submit" role="button" value="Pretraži"/>
   </div>
 <% end %>

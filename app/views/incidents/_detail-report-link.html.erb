@@ -5,6 +5,6 @@
 <% end %>
 <% if @incident.detailed_report.path %>
   <p class="notice incident-report-download">
-  <%= link_to "See Incident Detail Report [PDF]", @incident.detailed_report.url, class: "incident-report-download-link", title: "Download the Incident Detail Report for this incident to find more information" %>
+  <%= link_to "Pogledaj dokumentaciju", @incident.detailed_report.url, class: "incident-report-download-link", title: "Detaljna dokumentacija o ovoj informaicji" %>
   </p>
 <% end %>

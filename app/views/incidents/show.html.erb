@@ -1,5 +1,5 @@
 <%
-  title "Incident #{@incident.incident_number}, #{@incident.incident_type} at #{@incident.location.name}, #{@incident.occured_on.strftime('%d %b %Y')}"
+  title "PSI: #{@incident.incident_number}, #{@incident.incident_type} od #{@incident.location.name}"
 
   description "#{@incident.summary}"
 
@@ -11,12 +11,14 @@
 <main class="body-container" id="main" role="main">
   <article class="main-reading text-block incident incident-show-body h-event" role="main">
     <header class="page-header">
-      <h1 class="page-title p-name">Incident <%= @incident.incident_number %></h1>
+      <h1 class="page-title p-name"><%= @incident.incident_number %></h1>
+      <br />
+      <br />
 
       <nav class="page-nav">
-        <%= link_to "About Incident Reports", about_incidents_path %>
+        <%= link_to "PSI detalji", about_incidents_path %>
         <% if @incident.foi_requests.empty? and !@incident.detailed_report.path %>
-          <%= link_to "Adopt", incident_adopt_path(@incident), class: "incident-adopt-link", title: "help get more information about this incident" %>
+          <%= link_to "Preuzmi", incident_adopt_path(@incident), class: "incident-adopt-link", title: "pomozite nam da dobijemo ove informacije" %>
         <% end %>
       </nav>
     </header>
@@ -25,35 +27,35 @@
 
     <section class="incident-show-body">
       <dl class="incident-data-list">
-        <dt class="incident-field-label incident-type">Type</dt>
+        <dt class="incident-field-label incident-type">Vrsta</dt>
           <dd class="incident-field-value incident-type p-summary"><%= @incident.incident_type %></dd>
 
-        <dt class="incident-field-label incident-occurred-on">Occurred On</dt>
-          <dd class="incident-field-value incident-occurred-on"><time class="dt-start" datetime="<%= @incident.occured_on %>"><%= @incident.occured_on.strftime("%d %b %Y %H:%M") %></time></dd>
-
-        <dt class="incident-field-label incident-location">Location</dt>
-          <dd class="incident-field-value incident-location p-location"><%= @incident.location.name %></dd>
-
-        <dt class="incident-field-label incident-summary">Incident Summary</dt>
-          <dd class="incident-field-value incident-summary p-description"><%= @incident.summary %></dd>
-
-        <dt class="incident-field-label incident-informed-by">Informed By</dt>
-          <dd class="incident-field-value incident-informed-by"><%= @incident.informed_by %></dd>
-
-        <dt class="incident-field-label incident-level">Level</dt>
-          <dd class="incident-field-value incident-level"><%= @incident.level %></dd>
-
-        <dt class="incident-field-label incident-number">Incident Number</dt>
+        <dt class="incident-field-label incident-number">Naziv informacije</dt>
           <dd class="incident-field-value incident-number"><%= @incident.incident_number %></dd>
 
-        <dt class="incident-field-label incident-location-details">Location Details</dt>
-          <dd class="incident-field-value incident-location-details"><%= @incident.location_details %></dd>
+        <dt class="incident-field-label incident-summary">Opis informacije</dt>
+          <dd class="incident-field-value incident-summary p-description"><%= @incident.summary %></dd>
+
+        <dt class="incident-field-label incident-informed-by">Pravna osnova</dt>
+          <dd class="incident-field-value incident-informed-by"><%= @incident.informed_by %></dd>
+
+        <dt class="incident-field-label incident-occurred-on">Datum unosa</dt>
+          <dd class="incident-field-value incident-occurred-on"><time class="dt-start" datetime="<%= @incident.occured_on %>"><%= @incident.occured_on.strftime("%d %b %Y %H:%M") %></time></dd>
+
+        <!-- <dt class="incident-field-label incident-level">Redni broj</dt>
+          <dd class="incident-field-value incident-level"><%= @incident.level %></dd> -->
+
+        <dt class="incident-field-label incident-location">Vlasnik informacije</dt>
+          <dd class="incident-field-value incident-location p-location"><%= @incident.location.name %></dd>
+
+        <dt class="incident-field-label incident-location-details">Opis vlasnika podataka</dt>
+          <dd class="incident-field-value incident-location-details"><%= @incident.location.description %></dd>
       </dl>
     </section>
 
     <figure class="secondary">
     </figure>
 
-    <p class="msg msg-information">If you have any issues, concerns, questions or suggestions regarding this data please <a href="/about/#contact" title="Contact Detention Logs">contact Detention&nbsp;Logs</a>.</p>
+    <p class="msg msg-information">Ukoliko imate problema, nedoumice, pitanja ili prijedloge vezano uz ove informacije molimo vas da nas <a href="/about/#contact" title="kontaktirajte ekspertnu skupinu Code for Croatia">kontaktirate</a>.</p>
   </article>
 </main>

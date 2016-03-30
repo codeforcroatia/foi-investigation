@@ -5,8 +5,8 @@ en:
   hello: "Hello world"
   views:
     pagination:
-      first: "&laquo; First page"
-      last: "Last page &raquo;"
-      previous: "&lsaquo; Prev page"
-      next: "Next page &rsaquo;"
+      first: "&laquo; Početak"
+      last: "Kraj &raquo;"
+      previous: "&lsaquo; Prethodna"
+      next: "Sljedeća &rsaquo;"
       truncate: "&hellip;"

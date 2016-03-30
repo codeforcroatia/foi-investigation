@@ -4,7 +4,7 @@ module IncidentsHelper
   # with incident specific details. It also populates the form with tags that
   # can later be used for tracking requests
   def link_to_right_to_know_form(incident, text=nil)
-    url = "https://www.righttoknow.org.au/new/diac/?title=FOI%20Request%20for%20Detail%20Incident%20Report%20#{incident.incident_number};" +
+    url = "http://imamopravoznati.org/new/#{ incident.location.geoloc }/?title=FOI%20Request%20for%20Detail%20Incident%20Report%20#{incident.incident_number};" +
       "body=To%20the%20Department%20of%20Immigration%20and%20Border%20Protection%2C%0A%0ADear%20Sir%2FMadam" +
       "%2C%0A%0AUnder%20the%20Freedom%20of%20Information%20Act%201982%20(Cth)%20I%20request%20the%20" +
       "following%20document%3A%0A%0AIncident%20Detail%20Report%20#{ incident.incident_number }%20" +
@@ -29,11 +29,11 @@ module IncidentsHelper
     if (incident.foi_requests.count == 1)
       foi_request = incident.foi_requests.first
       text = "FOI Request for more detail: #{foi_request.display_status}"
-      link = "https://www.righttoknow.org.au/request/#{foi_request.url_title}"
+      link = "http://imamopravoznati.org/request/#{foi_request.url_title}"
     else
       statuses = incident.foi_requests.map(&:display_status).uniq
       text = "#{incident.foi_requests.length} FOI Requests for more detail: #{statuses.to_sentence.gsub('.', '')}"
-      link = "https://www.righttoknow.org.au/search/#{incident.incident_number}"
+      link = "http://imamopravoznati.org/search/#{incident.incident_number}"
     end
 
     link_to text, link, { class: "incident-rtk-request-link"}

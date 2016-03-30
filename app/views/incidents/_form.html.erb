@@ -35,8 +35,8 @@
 	<%= f.label :detailed_report  %><br />
 
 	<%= f.file_field :detailed_report %>
-	<% if @incident.detailed_report.path %>	<a href="<%= @incident.detailed_report.url %>">DETAILED REPORT</a>
-	<a href='/data/incidents/<%= @incident.id %>/deletereport'>Delete detailed report</a>
+	<% if @incident.detailed_report.path %>	<a href="<%= @incident.detailed_report.url %>">DOKUMENT U PRILOGU</a>
+	<a href='/data/incidents/<%= @incident.id %>/deletereport'>Delete attach</a>
 	<% end %>
   </div>
   <div class="actions">
