@@ -4,8 +4,8 @@
     <li class="incident-type">Vrsta</li>
     <li class="incident-location">Vlasnik informacije</li>
     <li class="incident-summary">Naziv informacije</li>
-    <li class="incident-location-details">Location Details</li>
-    <li class="incident-number">Number</li>
+    <li class="incident-location-details">Detalji o vlasniku</li>
+    <li class="incident-number">Link</li>
   </ol>
 
   <ol class="incident-river-body">
@@ -35,11 +35,7 @@
 
         <dl class="incident-main">
           <dt class="incident-field-label incident-summary">Naziv informacije</dt>
-            <!-- <% if incident.summary %>
-            <dd class="incident-field-value incident-summary p-description"><%= incident.summary %></dd> -->
-            <% if incident.incident_number %>
             <dd class="incident-field-value incident-summary p-description"><%= incident.incident_number %></dd>
-            <% end %>
         </dl>
 
         <dl class="incident-secondary">
@@ -53,7 +49,6 @@
           <dt class="incident-field-label incident-number"><abbr title="Informacija">In.</abbr> Informacija</dt>
             <dd class="incident-field-value incident-number">
               <%= link_to incident, title: 'Više informacija' do %>
-                <!-- <%= incident.incident_number %> -->
                 <span class="incident-link btn">više&nbsp;detalja<i> &rarr;</i></span>
               <% end %>
               <% if incident.detailed_report.path %><a href="<%= incident.detailed_report.url %>" title="Dokumentacija o ovome" class="docs-icon supporting distinct-download">dokumentacija</a><% end %>
