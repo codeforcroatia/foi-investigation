@@ -49,7 +49,7 @@ Detentionlogs::Application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = false
 
   # Enable threaded mode
   # config.threadsafe!
@@ -61,16 +61,21 @@ Detentionlogs::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-
+  # configer paperclip for adding attachments to the server
   config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => ENV['S3_BUCKET'],
-      :access_key_id => ENV['S3_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['S3_SECRET_ACCESS_KEY']
-    },
-    :s3_host_name => 's3-ap-southeast-2.amazonaws.com'
+    :storage => :filesystem
   }
+
+  # configer paperclip for adding attachments to the Amazon S3
+  #config.paperclip_defaults = {
+  #  :storage => :s3,
+  #  :s3_credentials => {
+  #    :bucket => ENV['S3_BUCKET'],
+  #    :access_key_id => ENV['S3_ACCESS_KEY_ID'],
+  #    :secret_access_key => ENV['S3_SECRET_ACCESS_KEY']
+  #  },
+  #  :s3_host_name => 's3-ap-southeast-2.amazonaws.com'
+  #}
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
