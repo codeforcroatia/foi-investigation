@@ -5,10 +5,10 @@ module IncidentsHelper
   # can later be used for tracking requests
   def link_to_right_to_know_form(incident, text=nil)
     url = "http://imamopravoznati.org/new/#{ incident.location.geoloc }/?title=#{incident.incident_number};" +
-      "body=Za:%20#{ incident.location.name }" +
+      "body=Za:%20#{ incident.incident_number  }" +
       "%2C%0A%0APod%20Zakonom%20o%20pravu%20na%20pristup%20informacijama%20molim%20vas%20podatke%20" +
       "sadrzane%20u%20'#{ incident.incident_number }'.%20Dostavite%20sljede%C4%87e%20" +
-      "informacije%3A%0A%0A%20#{ incident.incident_description }%20" +
+      "informacije%3A%0A%0A%20#{ incident.incident_number }%20" +
       "%0A%0ALijep%20pozdrav%2C%0A%0A****OVDJE%20SE%20POTPISI%20PUNIM%20IMENOM%20PRIJE%20SLANJA****" +
       "&tags=" + u("detentionlogs incident-number:#{incident.incident_number}")
     text ||= "Preuzmi #{incident.incident_number}"
