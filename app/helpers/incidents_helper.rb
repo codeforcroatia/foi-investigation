@@ -10,9 +10,9 @@ module IncidentsHelper
       "informacije%3A%0A%0A%20#{ incident.incident_description }.%20" +
       "Dostavite%20na%20ovu%20adresu%20u%20digitalnom%20obliku%20." +
       "%0A%0ALijep%20pozdrav%2C%0A%0A****OVDJE%20NAVEDITE%20IME%20I%20PREZIME%20PRIJE%20SLANJA%20ZAHTJEVA****" +
-      "&tags=" + u("foi-investigation foi-number:#{incident.incident_number}")
+      "&tags=" + u("detentionlogs incident-number:#{incident.incident_number}")
     text ||= "Preuzmi #{incident.incident_number}"
-    title =  "Otvara unaprijed popunjeni zahtjev za pristup informacijama kori<C5>tenjem Imamo pravo znati alata"
+    title =  "Otvara unaprijed popunjeni zahtjev za pristup informacijama kori&#353;tenjem Imamo pravo znati alata"
     link_to text, url, { title: title, class: "btn btn-submit"}
   end
 
@@ -27,11 +27,11 @@ module IncidentsHelper
   def link_to_right_to_know(incident)
     if (incident.foi_requests.count == 1)
       foi_request = incident.foi_requests.first
-      text = "PPI zahtjev za vi<C5>e detalja: #{foi_request.display_status}"
+      text = "PPI zahtjev za vi&#353;e detalja: #{foi_request.display_status}"
       link = "http://imamopravoznati.org/request/#{foi_request.url_title}"
     else
       statuses = incident.foi_requests.map(&:display_status).uniq
-      text = "#{incident.foi_requests.length} PPI zahtjev za vi<C5>e detalja: #{statuses.to_sentence.gsub('.', '')}"
+      text = "#{incident.foi_requests.length} PPI zahtjev za vi&#353;e detalja: #{statuses.to_sentence.gsub('.', '')}"
       link = "http://imamopravoznati.org/search/#{incident.incident_number}"
     end
 
